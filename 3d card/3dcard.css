@@ -1,0 +1,127 @@
+/* --- RESET & BACKGROUND --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #0f1123; /* Warna gelap ala game */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* --- LOGIKA EFEK 3D FLIP --- */
+
+.card-container {
+  width: 300px;
+  height: 400px;
+  perspective: 1000px; /* Memberikan efek kedalaman ruang 3D */
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d; /* Memastikan elemen anak ikut jadi 3D */
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animasi berputar membal */
+}
+
+/* Ketika kontainer disentuh kursor, putar bagian dalam kartu 180 derajat */
+.card-container:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Mengatur sisi depan dan belakang agar bertumpukan sempurna */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Menyembunyikan bagian belakang dinding saat diputar */
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* --- DESAIN SISI DEPAN --- */
+.card-front {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+  box-shadow: 0 10px 25px rgba(255, 65, 108, 0.3);
+}
+
+.avatar {
+  font-size: 70px;
+  background: rgba(255, 255, 255, 0.2);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 3px solid white;
+}
+
+.card-front h2 {
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.card-front p {
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+/* --- DESAIN SISI BELAKANG --- */
+.card-back {
+  background: #1c1f3d;
+  color: white;
+  border: 2px solid #ff416c;
+  transform: rotateY(
+    180deg
+  ); /* Memutar posisi awal sisi belakang agar pas saat dibalik */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.card-back h3 {
+  color: #ff416c;
+  margin-bottom: 20px;
+}
+
+.stats {
+  align-self: stretch;
+  margin-bottom: 30px;
+}
+
+.stats p {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  font-size: 15px;
+  text-align: left;
+}
+
+.btn-play {
+  background: #ff416c;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-play:hover {
+  background: #ff4b2b;
+  box-shadow: 0 0 15px #ff416c;
+}

@@ -1,0 +1,82 @@
+/* --- RESET DASAR --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+/* Latar Belakang Estetik: Gradasi Pastel Bergerak */
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientAnim 15s ease infinite; /* Kecepatan gerak background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Animasi menggeser warna background agar seperti cairan */
+@keyframes gradientAnim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Kartu Jam Efek Kaca Buram */
+.clock-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 40px 60px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  color: white;
+}
+
+/* Pengaturan Teks Salam */
+#greetings {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+/* Pengaturan Angka Jam Digital */
+#clock {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+/* Pengaturan Tanggal */
+#date {
+  font-size: 16px;
+  font-weight: 300;
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
+
+/* Responsif: Biar pas di layar HP yang kecil */
+@media (max-width: 450px) {
+  .clock-card {
+    padding: 30px 40px;
+  }
+  #clock {
+    font-size: 44px;
+  }
+}
